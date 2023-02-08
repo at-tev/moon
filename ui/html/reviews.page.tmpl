@@ -1,0 +1,25 @@
+{{template "base" .}}
+
+{{define "title"}}Reviews{{end}}
+
+{{define "main"}}
+<div id="all-reviews">
+    <a id="up-btn" href="#all-reviews" title="Up" hidden></a>
+    <p class="reviews-title">ALL REVIEWS</p>
+    <hr/>
+    <div id="reviews-list">
+        {{range . }}
+        <div class="review">
+            <p class="username">{{.User}}</p>
+            <p class="date">{{.Created}}</p>
+            <p class="text">{{.Text}}</p>
+        </div>
+        {{else}}
+        <p>No reviews...</p>
+        {{end}}
+    </div>
+    <a class="back-btn" href="/">BACK</a>
+</div>
+<script src="/static/date.js"></script>
+<script src="/static/scroll.js"></script>
+{{end}}

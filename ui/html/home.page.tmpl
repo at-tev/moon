@@ -1,0 +1,67 @@
+{{template "base" .}}
+
+{{define "title"}}Stepan Shaqaryan{{end}}
+
+{{define "main"}}
+<div id="menu">
+    <a href="#cover" title="Album cover"></a>  
+    <a href="#info" title="Information"></a>
+    <a href="#playlist" title="Playlist"></a>
+</div>
+<div id="cover">
+    <img id="img-album-cover" title="Album cover"
+         src="/static/pic/cover.png">
+    <img id="img-album-back" title="Album back"
+         src="/static/pic/album-back.jpeg.jpg"> 
+</div>
+<div id="info">
+    <h1 id="album-name">MOON OVER THE MOUNTAIN</h1>
+    <p>“Moon over the mountain” is album with best instrumental 
+        and vocal compositions of Armenian jazz composer Stepan 
+        Shaqaryan. The CD was released as a part of “Armenian Jazz
+        70” collection at the end of 2009.</p>
+    <img id="author-photo" title="Shaqaryan"
+         src="/static/pic/Shaqaryan-S.png">
+</div>
+<div id="playlist">
+    <div id="album-links">
+        <p>You can listen to the album on</p>
+        <a href="https://music.yandex.ru/album/22041485"
+           target="_blank" title="Yandex Music">
+        </a>
+        <a href="https://music.apple.com/us/album/moon-over-the-mountain/1614542871"
+           target="_blank" title="Apple Music">
+        </a>
+        <a href="https://open.spotify.com/album/6Bw5tHUEqJatBsG8MOYNYY?si=qgFUtYu2RmKieSZmI5_AJA"
+           target="_blank" title="Spotify">
+        </a>
+        <a href="https://music.youtube.com/playlist?list=OLAK5uy_lZ2MaEropHSC6PwwK4yUDVE6SedEY7zFM&feature=share"
+           target="_blank" title="Youtube Music">
+        </a>
+        <a href="https://www.deezer.com/ru/album/303086437"
+           target="_blank" title="Deezer">
+        </a>
+    </div>
+    <div id="album-tracks">
+         <iframe frameborder="0" style="border:none;width:100%;height:650px;" width="100%" height="650" src="https://music.yandex.ru/iframe/#album/22041485">Слушайте <a href='https://music.yandex.ru/album/22041485'>Moon Over the Mountain</a> — <a href='https://music.yandex.ru/artist/16392096'>Stepan Shaqaryan</a> на Яндекс Музыке</iframe>
+    </div>
+</div>
+<div id="reviews">
+    <p class="reviews-title">REVIEWS</p>
+    <hr>
+    <div id="main-reviews">
+        {{range . }}
+        <div class="review">
+            <p class="username">{{.User}}</p>
+            <p class="date">{{.Created}}</p>
+            <p class="text">{{.Text}}</p>
+        </div>
+        {{else}}
+        <p>No reviews...</p>
+        {{end}}
+    </div>
+    <a class="review-btn" href="/feedback">Leave a review</a>
+    <a class="review-btn" href="/reviews">All reviews</a>
+</div>
+<script src="/static/date.js"></script>
+{{end}}

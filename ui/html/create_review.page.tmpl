@@ -1,0 +1,24 @@
+{{template "base" .}}
+
+{{define "title"}}Leave a review{{end}}
+
+{{define "main"}}
+<div id="create-review">
+    <p id="expl-msg">Share<br>your<br>feedback!</p>
+    <form id="review-form" method="post">
+        <input id="user" name="user" type="text" maxlength=30 minlength=6 required
+               placeholder="Username"
+               pattern="^([A-Za-z]+(?:\s)?)+[A-Za-z]+$" autofocus>
+        <br>
+        <textarea id="review" name="review" placeholder="Review"
+                  required minlength=100 maxlength=1500></textarea>
+        <br>
+        <div id="captcha-container" class="smart-captcha" 
+             data-sitekey="<ключ_клиента>">
+        </div>
+        <button id="post-btn" type=submit>POST</button>
+    </form>
+    <a class="back-btn" href="/">BACK</a>
+</div>
+<script src="/static/create-review.js"></script>
+{{end}}
